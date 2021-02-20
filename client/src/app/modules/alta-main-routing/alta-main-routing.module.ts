@@ -16,6 +16,7 @@ import {EditOrganizationComponent} from '../../components/manage-organizations/o
 import { AssignStockKeepersComponent } from 'src/app/components/assign-stock-keepers/assign-stock-keepers.component';
 import { ManageStockKeepersDesignationComponent } from 'src/app/components/manage-stock-keepers-designation/manage-stock-keepers-designation.component';
 import { ReviewAuditComponent } from 'src/app/components/review-audit/review-audit.component';
+import {OrganizationSettingsComponent} from "../../components/organization-settings/organization-settings.component";
 
 export const routes: Routes = [
   {
@@ -83,6 +84,7 @@ export const routes: Routes = [
             path: 'edit-template/:ID', component: EditAuditTemplateComponent
           }
         ]},
+      { path: 'organization-settings', component: OrganizationSettingsComponent}
     ],
   },
 ];

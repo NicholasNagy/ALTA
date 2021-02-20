@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ViewChild} from '@angular/core';
-import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import {FormGroup, FormBuilder} from '@angular/forms';
 import { ManageInventoryItemsService } from 'src/app/services/manage-inventory-items.service';
 import { ManageAuditsService } from 'src/app/services/manage-audits.service';
 import {MatPaginator} from '@angular/material/paginator';
@@ -20,7 +20,7 @@ export class ManageInventoryItemsComponent implements OnInit {
   pageSize: number;
   pageIndex: number;
   previousPageIndex: number;
-  timeForm: FormGroup;
+  // timeForm: FormGroup;
   searchForm: FormGroup;
   body: any;
   subscription: any;
@@ -66,9 +66,9 @@ export class ManageInventoryItemsComponent implements OnInit {
     this.organization = '';
     this.filterTerm = '';
     this.selected = 'All';
-    this.timeForm = this.fb.group({
-      time: ['', Validators.required],
-    });
+    // this.timeForm = this.fb.group({
+    //   time: ['', Validators.required],
+    // });
     this.searchForm = this.fb.group({
       search: [''],
       _id_from: [''],
@@ -176,21 +176,21 @@ export class ManageInventoryItemsComponent implements OnInit {
     this.dataSource = new MatTableDataSource(this.items);
   }
 
-  refreshTime(): void {
-    this.body = {
-      new_job_timing: this.timeForm.value.time,
-      organization: localStorage.getItem('organization_id'),
-    };
-
-    this.itemsService.updateRefreshItemsTime(this.body).subscribe(
-      (data) => {
-        this.timeForm.reset();
-      },
-      (err) => {
-        this.errorMessage = err;
-      }
-    );
-  }
+  // refreshTime(): void {
+  //   this.body = {
+  //     new_job_timing: this.timeForm.value.time,
+  //     organization: localStorage.getItem('organization_id'),
+  //   };
+  //
+  //   this.itemsService.updateRefreshItemsTime(this.body).subscribe(
+  //     (data) => {
+  //       this.timeForm.reset();
+  //     },
+  //     (err) => {
+  //       this.errorMessage = err;
+  //     }
+  //   );
+  // }
 
   searchItem(): void {
 
